@@ -7,27 +7,29 @@
     <title>Depo Tracker</title>
   </head>
   <body>
+    <body onload="onPageLoad();"></body>
     <script type="text/javascript" src="index.js"></script>
-    <div class="tilastot">
-      <h2>TILASTOT</h2>
-      <p>profit : -1000</p>
-      <p id="depoCount">depo count</p>
-    </div>
+    <div class="mainContainer">
+      <div class="tilastot" class="bg">
+        <h2>TILASTOT</h2>
+        <p id="profit">profit : 0</p>
+        <p id="depoCount">depo count</p>
+      </div>
 
-    <div>
-      <hr />
-      <h3>admin</h3>
-      <div>
-        <button onclick="depoCountFunc()">depoCount</button>
-        <button onclick="resetDepoCount()">Reset depo count</button>
+      <div class="admin">
+        <h1>admin</h1>
         <div>
-          <p>deposit</p>
-          <button>10e</button>
-          <button>20e</button>
-          <button>30e</button>
-          <button>40e</button>
-          <button>50e</button>
-          <input type="text" placeholder="custom" />
+          <button onclick="resetProfit()">reset profit</button>
+          <button onclick="resetDepoCount()">Reset depo count</button>
+          <div>
+            <p>deposit</p>
+            <button onclick="add10Eur()">10e</button>
+            <button onclick="add20Eur()">20e</button>
+            <button onclick="add30Eur()">30e</button>
+            <button onclick="add40Eur()">40e</button>
+            <button onclick="add50Eur()">50e</button>
+            <input type="text" placeholder="custom" />
+          </div>
         </div>
       </div>
     </div>
