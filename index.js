@@ -14,6 +14,7 @@ const resetProfit = () => {
   localStorage.removeItem("profit");
   profit = 0;
   document.getElementById("profit").innerHTML = `profit ${profit}`;
+  checkProfit();
 };
 const checkProfit = () => {
   if (profit === 0) {
@@ -31,6 +32,30 @@ const onPageLoad = () => {
   checkProfit();
 };
 
+const submitCustomDeposit = () => {
+  let inputValue = document.getElementById("deposit").value;
+  if (isNaN(inputValue)) {
+    alert("Input not valid");
+  } else {
+    localStorage.setItem("profit", JSON.stringify((profit -= inputValue)));
+    document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
+    //depo count
+    localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
+    document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+    checkProfit();
+  }
+};
+const submitCustomWithdraw = () => {
+  let inputValue = document.getElementById("withdraw").value;
+  if (isNaN(inputValue)) {
+    alert("Input not valid");
+  } else {
+    localStorage.setItem("profit", JSON.stringify((profit = +inputValue)));
+    document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
+    checkProfit();
+  }
+};
+
 const add10Eur = () => {
   localStorage.setItem("profit", JSON.stringify((profit -= 10)));
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
@@ -45,6 +70,7 @@ const add20Eur = () => {
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
   document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  checkProfit();
 };
 
 const add30Eur = () => {
@@ -53,6 +79,7 @@ const add30Eur = () => {
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
   document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  checkProfit();
 };
 
 const add40Eur = () => {
@@ -61,6 +88,7 @@ const add40Eur = () => {
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
   document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  checkProfit();
 };
 
 const add50Eur = () => {
@@ -69,4 +97,5 @@ const add50Eur = () => {
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
   document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  checkProfit();
 };

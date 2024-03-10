@@ -19,18 +19,35 @@
       <div class="admin">
         <h1>admin</h1>
         <div>
-          <button onclick="resetProfit()">reset profit</button>
-          <button onclick="resetDepoCount()">Reset depo count</button>
           <div>
-            <p>deposit</p>
+            <h4>deposit</h4>
             <button onclick="add10Eur()">10e</button>
             <button onclick="add20Eur()">20e</button>
             <button onclick="add30Eur()">30e</button>
             <button onclick="add40Eur()">40e</button>
             <button onclick="add50Eur()">50e</button>
-            <input type="text" placeholder="custom" />
+            <form action="">
+              <label for="deposit">deposit </label><br />
+              <input type="text" id="deposit" name="deposit" /><br />
+              <button type="button" onclick="submitCustomDeposit()">
+                Submit
+              </button>
+            </form>
+          </div>
+          <div>
+            <form action="">
+              <label for="withdraw">kotuitus &#129297;</label><br />
+              <input type="text" id="withdraw" name="withdraw" /><br />
+              <button type="button" onclick="submitCustomWithdraw()">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
+      </div>
+      <div id="reset">
+        <button onclick="resetProfit()">reset profit</button>
+        <button onclick="resetDepoCount()">Reset depo count</button>
       </div>
     </div>
   </body>
