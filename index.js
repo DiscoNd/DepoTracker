@@ -25,10 +25,16 @@ const checkProfit = () => {
     document.getElementById("profit").style.color = "red";
   }
 };
+const loadSound = () => {
+  var takki = new Audio("../soundEffects/takki.mp3");
+  var heilahti = new Audio("../soundEffects/heilahti.ogg");
+  return takki, heilahti;
+};
+
 const onPageLoad = () => {
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
-
+  loadSound();
   checkProfit();
 };
 
@@ -47,6 +53,7 @@ const submitCustomDeposit = () => {
     checkProfit();
   }
 };
+
 const submitCustomWithdraw = () => {
   let inputValue = parseInt(document.getElementById("withdraw").value);
   if (isNaN(inputValue)) {
@@ -60,7 +67,6 @@ const submitCustomWithdraw = () => {
     document.getElementById("withdraw").value = "";
   }
 };
-
 const add10Eur = () => {
   localStorage.setItem("profit", JSON.stringify((profit -= 10)));
   console.log(typeof profit);
@@ -106,9 +112,22 @@ const add50Eur = () => {
   checkProfit();
 };
 
-//soundboard
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".soundBoard button");
+
+  // Define an object to store the audio elements
+  const audioElements = {};
+
+  // Function to preload audio files
+  function preloadAudio(url) {
+    const audio = new Audio();
+    audio.src = url;
+    return audio;
+  }
+
+  // Preload the audio files
+  audioElements.jere = preloadAudio("../soundEffects/takki.mp3");
+  audioElements.heilahti = preloadAudio("../soundEffects/heilahti.ogg");
 
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
@@ -118,23 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function playSound(sound) {
-    // Logic to play the sound effect based on the provided sound identifier
-    switch (sound) {
-      case "jere":
-        var audio = new Audio("../soundEffects/takki.mp3");
-        audio.volume = 0.4;
-        audio.play();
-        // Play the sound effect for Jere karalahti
-        break;
-      case "heilahti":
-        var audio = new Audio("../soundEffects/heilahti.ogg");
-        audio.volume = 0.4;
-        audio.play();
-        break;
-      // Add more cases for additional sound effects if needed
-      default:
-        // Handle unknown sound identifier
-        break;
-    }
+    // Get the corresponding audio element and play it
+    audioElements[sound].volume = 0.4;
+    audioElements[sound].play();
   }
 });
