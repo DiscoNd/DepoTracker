@@ -5,6 +5,7 @@ let depoCount = localStorage.getItem("depoCount")
   ? JSON.parse(localStorage.getItem("depoCount"))
   : 0;
 
+var audio = new Audio("./takki.mp3");
 const resetDepoCount = () => {
   localStorage.removeItem("depoCount");
   depoCount = 0;
@@ -45,19 +46,29 @@ const submitCustomDeposit = () => {
     checkProfit();
   }
 };
+// joku bugi
 const submitCustomWithdraw = () => {
-  let inputValue = document.getElementById("withdraw").value;
+  let inputValue = parseInt(document.getElementById("withdraw").value);
   if (isNaN(inputValue)) {
     alert("Input not valid");
   } else {
-    localStorage.setItem("profit", JSON.stringify((profit = +inputValue)));
-    document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
+    // let profits = parseInt(JSON.parse(localStorage.getItem("profit")));
+    // console.log(typeof profits);
+    // console.log(typeof profit);
+    // console.log((profits += inputValue));
+    localStorage.setItem("profit", JSON.stringify((profit += inputValue)));
+    document.getElementById(
+      "profit"
+    ).innerHTML = `profit ${localStorage.getItem("profit")} &#8364;`;
+    audio.play();
+
     checkProfit();
   }
 };
 
 const add10Eur = () => {
   localStorage.setItem("profit", JSON.stringify((profit -= 10)));
+  console.log(typeof profit);
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));

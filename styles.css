@@ -1,24 +1,75 @@
-* {
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: "Poppins";
 }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
-  margin-left: 25px;
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
+
 .tilastot {
-  color: black;
-  font-size: large;
-  margin-top: 25px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .admin {
-  margin-top: 100px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin h1 {
+  margin-top: 0;
+}
+
+.admin form {
+  margin-top: 10px;
+}
+
+.admin label {
+  margin-right: 5px;
+}
+
+.admin input {
+  margin-bottom: 10px;
+}
+
+.admin button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #reset {
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+#reset button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bg {
+  background-color: #007bff;
+  color: #fff;
 }
