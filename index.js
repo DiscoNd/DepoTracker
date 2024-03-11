@@ -5,7 +5,6 @@ let depoCount = localStorage.getItem("depoCount")
   ? JSON.parse(localStorage.getItem("depoCount"))
   : 0;
 
-var audio = new Audio("./takki.mp3");
 const resetDepoCount = () => {
   localStorage.removeItem("depoCount");
   depoCount = 0;
@@ -35,6 +34,7 @@ const onPageLoad = () => {
 
 const submitCustomDeposit = () => {
   let inputValue = document.getElementById("deposit").value;
+
   if (isNaN(inputValue)) {
     alert("Input not valid");
   } else {
@@ -43,26 +43,21 @@ const submitCustomDeposit = () => {
     //depo count
     localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
     document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+    document.getElementById("deposit").value = "";
     checkProfit();
   }
 };
-// joku bugi
 const submitCustomWithdraw = () => {
   let inputValue = parseInt(document.getElementById("withdraw").value);
   if (isNaN(inputValue)) {
     alert("Input not valid");
   } else {
-    // let profits = parseInt(JSON.parse(localStorage.getItem("profit")));
-    // console.log(typeof profits);
-    // console.log(typeof profit);
-    // console.log((profits += inputValue));
     localStorage.setItem("profit", JSON.stringify((profit += inputValue)));
     document.getElementById(
       "profit"
     ).innerHTML = `profit ${localStorage.getItem("profit")} &#8364;`;
-    audio.play();
-
     checkProfit();
+    document.getElementById("withdraw").value = "";
   }
 };
 
@@ -110,3 +105,36 @@ const add50Eur = () => {
   document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
   checkProfit();
 };
+
+//soundboard
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".soundBoard button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const sound = this.dataset.sound;
+      playSound(sound);
+    });
+  });
+
+  function playSound(sound) {
+    // Logic to play the sound effect based on the provided sound identifier
+    switch (sound) {
+      case "jere":
+        var audio = new Audio("../soundEffects/takki.mp3");
+        audio.volume = 0.4;
+        audio.play();
+        // Play the sound effect for Jere karalahti
+        break;
+      case "heilahti":
+        var audio = new Audio("../soundEffects/heilahti.ogg");
+        audio.volume = 0.4;
+        audio.play();
+        break;
+      // Add more cases for additional sound effects if needed
+      default:
+        // Handle unknown sound identifier
+        break;
+    }
+  }
+});
