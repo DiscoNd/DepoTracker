@@ -126,8 +126,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Preload the audio files
-  audioElements.jere = preloadAudio("../soundEffects/takki.mp3");
-  audioElements.heilahti = preloadAudio("../soundEffects/heilahti.ogg");
+  // audioElements.jere = preloadAudio("../soundEffects/takki.mp3");
+  // audioElements.heilahti = preloadAudio("../soundEffects/heilahti.ogg");
+  audioElements.jere = preloadAudio(
+    "https://raw.githubusercontent.com/DiscoNd/DepoTracker/main/soundEffects/takki.mp3"
+  );
+  audioElements.heilahti = preloadAudio(
+    "https://raw.githubusercontent.com/DiscoNd/DepoTracker/main/soundEffects/heilahti.ogg"
+  );
 
   buttons.forEach((button) => {
     button.addEventListener("click", function () {
