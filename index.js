@@ -5,35 +5,35 @@ let depoCount = localStorage.getItem("depoCount")
   ? JSON.parse(localStorage.getItem("depoCount"))
   : 0;
 
+// isommat fontit ja parempire chroma key
 const resetDepoCount = () => {
   localStorage.removeItem("depoCount");
   depoCount = 0;
-  document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  document.getElementById(
+    "depoCount"
+  ).innerHTML = `depoja tänään: ${depoCount}`;
 };
 const resetProfit = () => {
   localStorage.removeItem("profit");
   profit = 0;
-  document.getElementById("profit").innerHTML = `profit ${profit}`;
+  document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   checkProfit();
 };
 const checkProfit = () => {
   if (profit === 0) {
-    document.getElementById("profit").style.color = "black";
+    document.getElementById("profit").style.color = "white";
   } else if (profit > 0) {
     document.getElementById("profit").style.color = "green";
   } else {
     document.getElementById("profit").style.color = "red";
   }
 };
-const loadSound = () => {
-  var takki = new Audio("../soundEffects/takki.mp3");
-  var heilahti = new Audio("../soundEffects/heilahti.ogg");
-  return takki, heilahti;
-};
 
 const onPageLoad = () => {
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
-  document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  document.getElementById(
+    "depoCount"
+  ).innerHTML = `depoja tänään:  ${depoCount}`;
   loadSound();
   checkProfit();
 };
@@ -48,7 +48,9 @@ const submitCustomDeposit = () => {
     document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
     //depo count
     localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
-    document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+    document.getElementById(
+      "depoCount"
+    ).innerHTML = `depoja tänään: ${depoCount}`;
     document.getElementById("deposit").value = "";
     checkProfit();
   }
@@ -73,7 +75,9 @@ const add10Eur = () => {
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
-  document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  document.getElementById(
+    "depoCount"
+  ).innerHTML = `depoja tänään: ${depoCount}`;
   checkProfit();
 };
 const add20Eur = () => {
@@ -81,7 +85,9 @@ const add20Eur = () => {
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
-  document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  document.getElementById(
+    "depoCount"
+  ).innerHTML = `depoja tänään: ${depoCount}`;
   checkProfit();
 };
 
@@ -90,7 +96,9 @@ const add30Eur = () => {
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
-  document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  document.getElementById(
+    "depoCount"
+  ).innerHTML = `depoja tänään: ${depoCount}`;
   checkProfit();
 };
 
@@ -99,7 +107,9 @@ const add40Eur = () => {
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
-  document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  document.getElementById(
+    "depoCount"
+  ).innerHTML = `depoja tänään: ${depoCount}`;
   checkProfit();
 };
 
@@ -108,7 +118,9 @@ const add50Eur = () => {
   document.getElementById("profit").innerHTML = `profit ${profit} &#8364;`;
   //depo count
   localStorage.setItem("depoCount", JSON.stringify((depoCount += 1)));
-  document.getElementById("depoCount").innerHTML = `depo count ${depoCount}`;
+  document.getElementById(
+    "depoCount"
+  ).innerHTML = `depoja tänään: ${depoCount}`;
   checkProfit();
 };
 
@@ -126,8 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Preload the audio files
-  // audioElements.jere = preloadAudio("../soundEffects/takki.mp3");
-  // audioElements.heilahti = preloadAudio("../soundEffects/heilahti.ogg");
   audioElements.jere = preloadAudio(
     "https://raw.githubusercontent.com/DiscoNd/DepoTracker/main/soundEffects/takki.mp3"
   );

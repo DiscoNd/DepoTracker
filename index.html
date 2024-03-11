@@ -5,53 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Depo Tracker</title>
+    <link rel="icon" type="image/x-icon" href="icon.png" />
   </head>
   <body>
     <body onload="onPageLoad();"></body>
     <script type="text/javascript" src="index.js"></script>
     <div class="mainContainer">
       <div class="tilastot" class="bg">
-        <h2>TILASTOT</h2>
-        <p id="profit">profit : 0</p>
-        <p id="depoCount">depo count</p>
+        <!-- <h2>TILASTOT</h2> -->
+        <p id="profit">profit : 0 &#8364;</p>
+        <p id="depoCount">depoja tänään: 0</p>
       </div>
-
-      <div class="admin">
-        <h1>admin</h1>
-        <div>
+      <div class="test">
+        <div class="admin">
           <div>
-            <h4>deposit</h4>
-            <button onclick="add10Eur()">10e</button>
-            <button onclick="add20Eur()">20e</button>
-            <button onclick="add30Eur()">30e</button>
-            <button onclick="add40Eur()">40e</button>
-            <button onclick="add50Eur()">50e</button>
-            <form action="">
-              <label for="deposit">deposit </label><br />
-              <input type="text" id="deposit" name="deposit" /><br />
-              <button type="button" onclick="submitCustomDeposit()">
-                Submit
-              </button>
-            </form>
+            <div>
+              <h4>Deposit</h4>
+              <button onclick="add10Eur()">10e</button>
+              <button onclick="add20Eur()">20e</button>
+              <button onclick="add30Eur()">30e</button>
+              <button onclick="add40Eur()">40e</button>
+              <button onclick="add50Eur()">50e</button>
+              <form action="">
+                <input
+                  type="text"
+                  id="deposit"
+                  name="deposit"
+                  placeholder="custom"
+                />
+                <button type="button" onclick="submitCustomDeposit()">
+                  Submit
+                </button>
+              </form>
+            </div>
+            <div>
+              <form action="">
+                <label for="withdraw">kotuitus &#129297;</label><br />
+                <input type="text" id="withdraw" name="withdraw" />
+                <button type="button" onclick="submitCustomWithdraw()">
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
-          <div>
-            <form action="">
-              <label for="withdraw">kotuitus &#129297;</label><br />
-              <input type="text" id="withdraw" name="withdraw" /><br />
-              <button type="button" onclick="submitCustomWithdraw()">
-                Submit
-              </button>
-            </form>
+          <div id="reset">
+            <button onclick="resetProfit()">Nollaa Profit</button>
+            <button onclick="resetDepoCount()">Nollaa depoja tänään</button>
           </div>
         </div>
-      </div>
-      <div id="reset">
-        <button onclick="resetProfit()">reset profit</button>
-        <button onclick="resetDepoCount()">Reset depo count</button>
-      </div>
-      <div class="soundBoard">
-        <button data-sound="jere">Jere karalahti</button>
-        <button data-sound="heilahti">heilahti</button>
+        <div class="soundBoard">
+          <h4>sound board</h4>
+          <button data-sound="jere">Takki</button>
+          <button data-sound="heilahti">Heilahti</button>
+        </div>
       </div>
     </div>
   </body>

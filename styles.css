@@ -1,7 +1,11 @@
 body {
   font-family: Arial, sans-serif;
+  font-weight: 900;
+
   margin: 0;
   padding: 0;
+  margin: 0px auto;
+  overflow: hidden;
 }
 
 .mainContainer {
@@ -13,17 +17,18 @@ body {
 }
 
 .tilastot {
-  background-color: #f0f0f0;
   padding: 20px;
-  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 3em;
+  background-color: rgba(70, 63, 63);
+  color: white;
 }
 
 .soundBoard {
   background-color: #f0f0f0;
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -34,7 +39,13 @@ body {
 }
 
 .soundBoard button {
-  margin-bottom: 10px; /* Add this line */
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .admin {
@@ -85,8 +96,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-
-.bg {
-  background-color: #007bff;
-  color: #fff;
+.test {
+  display: flex;
+  gap: 50px;
 }
